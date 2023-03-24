@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+  <head>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <title>Swift Academy</title>
+	<style>
+
+		.container4 {
+			display:auto;
+			flex-wrap: wrap;
+			justify-content: space-around;
+			align-items: center;
+			margin: 20px 0;
+		}
+
+		.member {
+			flex: 0 0 25%;
+			text-align: center;
+			margin: 20px;
+		}
+
+		.member img {
+			width: 200px;
+			height: 200px;
+			object-fit: cover;
+			border-radius: 50%;
+			margin-bottom: 10px;
+		}
+
+		.member p {
+			font-size: 16px;
+			line-height: 1.5;
+		}
+
+		.stars span {
+			color: orange;
+		}
+	
+		.hover-text {
+			font-size: 24px;
+			color: #333;
+			transition: color 0.6s ease;
+		}
+
+		.hover-text:hover {
+			color: #ff8a00;
+			cursor: pointer;
+		}
+
+		/* Style for the main content area */
+		.content {
+			margin-left: 200px;
+			padding: 20px;
+		}
+
+		/* Style for the space for applications and comments */
+		.app-comments {
+			margin-top: 20px;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+
+		.app-box {
+			width: 48%;
+			height: 200px;
+			background-color: #fff;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			margin-bottom: 20px;
+			padding: 20px;
+			box-sizing: border-box;
+		}
+
+		.comment-box {
+			width: 100%;
+			background-color: #fff;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			margin-bottom: 20px;
+			padding: 20px;
+			box-sizing: border-box;
+		}
+	
+      /* Add your custom styles here */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f1f1f1;
+      }
+      header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+      }
+      nav {
+        background-color: #ddd;
+        overflow: hidden;
+        margin-bottom: 20px;
+      }
+      nav a {
+        float: left;
+        display: block;
+        color: #333;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      nav a:hover {
+        background-color: #333;
+        color: #fff;
+      }
+      #left-side {
+        float: left;
+        width: 20%;
+        padding: 10px;
+      }
+      #main-content {
+        float: left;
+        width: 60%;
+        padding: 10px;
+      }
+      #right-side {
+        float: left;
+        width: 20%;
+        padding: 10px;
+      }
+      footer {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        clear: both;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th, td {
+        text-align: left;
+        padding: 8px;
+      }
+      th {
+        background-color: #333;
+        color: #fff;
+      }
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+      form {
+        border: 2px solid #333;
+        padding: 10px;
+      }
+      input[type=text], select, textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 16px;
+        resize: vertical;
+      }
+      input[type=submit] {
+        background-color: #333;
+        color: #fff;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      input[type=submit]:hover {
+        background-color: #ddd;
+        color: #333;
+      }
+		/* Style for the right-side content */
+		.right-side {
+			float: right;
+			width: 20%;
+			margin-left: 2%;
+			background-color: #f2f2f2;
+			padding: 10px;
+			border-radius: 5px;
+		}
+		
+		/* Style for the icon links */
+		.icon-link {
+			display: inline-block;
+			margin-right: 10px;
+			color: #fff;
+			background-color: #333;
+			border-radius: 50%;
+			width: 40px;
+			height: 40px;
+			text-align: center;
+			line-height: 40px;
+			font-size: 20px;
+			transition: background-color 0.4s ease;
+		}
+		
+		/* Style for the icon links on hover */
+		.icon-link:hover {
+			background-color: #4267B2;
+		}
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .image-container {
+        position: relative;
+        width: 100%;
+        height: 50vh;
+        overflow: hidden;
+      }
+      .image-container img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+      }
+      .image-container .text-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 4em;
+        color: white;
+        text-align: center;
+        text-shadow: 2px 2px #000;
+      }
+      }
+      /* Styles for the picture gallery */
+      .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .gallery img {
+        max-width: 100%;
+        height: 1%;
+        margin: 10px;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .gallery img:hover {
+        transform: scale(1.1);
+      }
+		
+    </style>
+  </head>
+  <body>
+    <!-- Header content -->
+    <header>
+      <h1>Swift Academy</h1>
+	  <h5 style="color:powderblue;">Wisdom is Light</h5>
+		<a href="https://www.facebook.com"><span class="icon-link"><i class="fab fa-facebook-f"></i></span></a>
+		<a href="https://www.instagram.com"><span class="icon-link"><i class="fab fa-instagram"></i></span></a>
+		<a href="https://twitter.com"><span class="icon-link"><i class="fab fa-twitter"></i></span></a>
+		<a href="https://www.youtube.com"><span class="icon-link"><i class="fab fa-youtube"></i></span></a>
+		<a href="https://www.whatsapp.com"><span class="icon-link"><i class="fab fa-whatsapp"></i></span></a>
+    </header>
+
+    <!-- Navigation bar -->
+    <nav>
+      <a href="C:\Users\hp\Documents\ASSIGNMENT1!.html\MyAssignmentHomePage1.html">Home</a>
+      <a href="C:\Users\hp\Documents\ASSIGNMENT1!.html\Other Pages\about.html">About Us</a>
+      <a href="C:\Users\hp\Documents\ASSIGNMENT1!.html\Other Pages\service.html">Services</a>
+      <a href="C:\Users\hp\Documents\ASSIGNMENT1!.html\Other Pages\login.html">Contact Us</a>
+    </nav>
+
+	<!-- Main content area -->
+	<div class="content">
+	<img src="C:\Users\hp\Downloads\Image\images\download.jpg" alt="My Website Logo">
+		<h1 class="hover-text" style="text-align:left;background:powderblue;">Swift Academy</h1>
+		<p>Welcome to Swift Academy! This is the place where knowladge is Free just by subcribing. just go to the main content area where you can view your applications and comments.</p>
+<pre style="color:green;">A school is an important place for an individual to learn. 
+A school teaches the students to learn, write and speak correctly. 
+A school makes a person active in <u>life</u> by teaching various other things than academics. It teaches us <u>moral values</u> and the right <u>discipline in life.</u></pre>
+<br><br>
+	
+    <section class="main">
+      <aside class="left">
+        <h2 class="hover-text"><u>Menu</h2></u>
+        <ul>
+          <li><a href="#">Help</a></li><br>
+          <li><a href="#">Our Campus</a></li><br>
+          <li><a href="#">Tuation/Fees</a></li><br>
+          <li><a href="#">Courses</a></li><br>
+        </ul>
+      </aside><br>
+
+    <!-- Left-side content -->
+    <div id="left-side">
+      <h2 style="color:green;"><u>Our Program/Courses</h2></u>
+      <ul>
+        <li>Bsc Computer Science</li>
+        <li>Bsc Artictecture</li>
+        <li>Bsc Algriculture</li>
+		<li>Bsc Biomedical</li>
+		<li>Bsc Land Survay</li>
+		<li>Bsc Land Administration</li>
+		<li>Bsc Water Engineering</li>
+		<li>Bsc Political Science</li>
+		<li>Bsc Law</li>
+		<li>Bsc Civil Engineering</li>
+		<li>Bsc Business Managment</li>
+		<li>Bsc Enterprise</li>
+        <li>Master's Computer Science</li>
+        <li>Master's Artictecture</li>
+        <li>Master's Algriculture</li>
+		<li>Master's Biomedical</li>
+		<li>Master's Land Survay</li>
+		<li>Master's Land Administration</li>
+		<li>Master's Water Engineering</li>
+		<li>Master's Political Science</li>
+		<li>Master's Law</li>
+		<li>Master's Civil Engineering</li>
+		<li>Master's Business Managment</li>
+		<li>Master's Enterprise</li>
+      </ul>
+      <img src="C:\Users\hp\Downloads\Image\images\skul1.jpg" alt="Our Campus">
+	  <h1 style="color:powderblue;">@Swift.AC</h1>
+	  <p>Wisdom Is Light</p>
+    </div>
+
+<br><br>
+      <article>
+        <h2 class="hover-text"><u>Administration</h2></u>
+        <pre style="color:blue;">A school teaches us to face the challenges thrown by life. My School does the same thing as any other school would do. 
+		The name of my school is Delhi Public School. The building of my school is very big and beautiful. There is a big basketball & badminton court, volleyball and football ground in our school.
+
+For the morning prayer, all the school students gather on the ground and sing the prayer together. My school has a huge library and it has many types of subject books and novels. I never miss any class in school. 
+I go to school regularly and learn new things every day.</pre>
+        <img src="C:\Users\hp\Downloads\Image\images\download (1).jpg" alt="Image">
+        <p class="hover-text">A school is an important place for an individual to learn. A school teaches the students to learn, write and speak correctly. A school makes a person active in life by teaching various other things than academics. It teaches us moral values and the right discipline in life.
+
+A school teaches us to face the challenges thrown by life. My school teaches me how to be responsible and hard working in life. I love my school because it provides us with a lot of facilities. There are 3 big playgrounds and a tennis court in our school.
+
+There is a huge library consisting of various books. The teachers of my school are kind and loving, they cooperate with us in bad times. There are many students studying in our school from kindergarten to higher secondary class.
+
+There are well-equipped machines in our laboratories where we experiment with different things. There is an auditorium where different inter and intra-school competitions take place.  My school organizes different festival events on occasions like Diwali, Christmas, Holi, etc. We celebrate all the national festivals of India with joy and pride.
+
+There is a 2-month break in summers and a 15-day break in winters for the students and the teachers in our school. I love being part of this school because it makes me learn so many things about life and morality. Our teachers teach us to become responsible citizens and face the challenges of life with courage and bravery. I love my school very much.</p>
+
+		<table><br><br>
+          <thead>
+		  <img src="C:\Users\hp\Downloads\Image\images\sku2.jpg" alt="Our Campus">
+		  <h3 style="text-align:left;background:yellow;">Other Info</h3>
+            <tr>
+              <th>Course</th>
+              <th>Duration</th>
+              <th>Fees</th>
+			  <th>Program</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Computer Science</td>
+              <td>3-years</td>
+              <td>$ 1,800 USD</td>
+			  <td>Bsc/Master's</td>
+            </tr>
+            <tr>
+              <td>Civil Engineering</td>
+              <td>4-years</td>
+              <td>$ 2,000 USD</td>
+			  <td>Bsc/Master's</td>
+            </tr>
+            <tr>
+              <td>Law</td>
+              <td>7-years</td>
+              <td>$ 3,500 USD</td>
+			  <td>Bsc</td>
+            </tr>
+            <tr>
+              <td>Biomedical</td>
+              <td>3-years</td>
+              <td>$ 1,500 USD</td>
+			  <td>Bsc/Master's</td>
+            </tr>
+            <tr>
+              <td>Land Administration</td>
+              <td>4-years</td>
+              <td>$ 2,500 USD</td>
+			  <td>Bsc/Master's</td>
+            </tr>
+            <tr>
+              <td>Political Science</td>
+              <td>3-years</td>
+              <td>$ 1,500 USD</td>
+			  <td>Bsc/Master's</td>
+            </tr>
+            <tr>
+              <td>Algriculture</td>
+              <td>4-years</td>
+              <td>$ 2,000 USD</td>
+			  <td>Master's</td>
+            </tr>
+            <tr>
+              <td>Business Managment</td>
+              <td>4-years</td>
+              <td>$ 3,000 USD</td>
+			  <td>Bsc/Master's</td>
+            </tr>
+            <tr>
+              <td>Water Engineering</td>
+              <td>5-years</td>
+              <td>$ 3,500 USD</td>
+			  <td>Bsc</td>
+            </tr>
+            <tr>
+              <td>Industrial Engineering</td>
+              <td>4-years</td>
+              <td>$ 3,900 USD</td>
+			  <td>Bsc/Master's</td>
+            </tr>
+            <tr>
+              <td>Actictecture Engineering</td>
+              <td>5-years</td>
+              <td>$ 4,500 USD</td>
+			  <td>Bsc</td>
+            </tr>
+          </tbody>
+        </table><br>
+		
+    <div class="image-container">
+      <img src="C:\Users\hp\Documents\ASSIGNMENT1!.html\Img\skul1.jpg" alt="Swift.AC">
+      <div class="text-overlay"><h1 style="text-align:bottom-left;color:powderblue;"><u>@Swift Academy</h1></u><pre>Welcome to Swift Academy!</pre><h6 style="background:chocolate;">We are always proud to enlighten the world.</h6></div>
+    </div>
+		
+		<div class="app-comments">
+			<div class="app-box">
+				<h2 class="hover-text">Application 1</h2>
+				<h3 style="color:blue;"><u>For Students use only</h3></u>
+				<p>This is a space for students who wants to enroll in our institution</p>
+			</div>
+
+			<div class="app-box">
+				<h2 class="hover-text">Application 2</h2>
+				<h3 style="color:green;"><u>For Employee/Staff use only</h3></u>
+				<p>This is a space for workers who needs job from our entity/institution</p>
+			</div>
+
+			<div class="comment-box">
+				<h2 class="hover-text">Comments</h2>
+				<h3 style="color:red;"><u>For all user</h3></u>
+				<p>These are comments from other users. You can let us know what you think in the section below</p>
+			</div>
+		</div>
+	</div><br><br>
+
+    <h1 class="hover-text" style="background:powderblue;">Our Campus Picture Gallery</h1>
+    <div class="gallery">
+      <img src="C:\Users\hp\Documents\ASSIGNMENT1!.html\Img\camp1.jpg" alt="Image 1">
+      <img src="C:\Users\hp\Documents\ASSIGNMENT1!.html\Img\camp2.jpg" alt="Image 2">
+      <img src="C:\Users\hp\Documents\ASSIGNMENT1!.html\Img\camp3.jpg" alt="Image 3"><br><br><br>
+      <img src="C:\Users\hp\Documents\ASSIGNMENT1!.html\Img\camp4.jpg" alt="Image 4">
+      <img src="C:\Users\hp\Documents\ASSIGNMENT1!.html\Img\camp5.jpg" alt="Image 5">
+    </div>
+		
+	<!-- Form -->
+	<h1 class="hover-text" style="background:powderblue; text-align:center;"><u>Fill the Form below and Submit</h1></u>
+	<form>
+		<label for="Last name">Surname:</label>
+		<input type="text" id="name" name="name"><br><br>
+		
+		<label for="First name">First Name:</label>
+		<input type="text" id="name" name="name"><br><br>
+		
+		<label for="address">Address:</label>
+		<input type="text" id="address" name="address"><br><br>
+
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email"><br><br>
+
+		<label for="password">Password:</label>
+		<input type="password" id="password" name="password"><br><br>
+
+		<label for="age">Age:</label>
+		<input type="number" id="age" name="age"><br><br>
+
+		<label for="gender">Gender:</label>
+		<select id="gender" name="gender">
+			<option value="male">Male</option>
+			<option value="female">Female</option>
+			<option value="other">Other</option>
+		</select><br>
+
+		<label for="message">Message:</label>
+		<textarea id="message" name="message"></textarea><br>
+
+		<input type="submit" value="Submit">
+	</form>
+	
+    <h2 class="hover-text"style="background:yellow;">Upload a Document File of your Academic Status</h2>
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+      <input type="file" name="fileToUpload" id="fileToUpload">
+      <input type="submit" value="Upload File" name="submit">
+    </form>
+	
+	<h1 style="background:powderblue;text-align:center;">Our Team Members</h1>
+<div>
+	<div class="container4">
+		<div class="member">
+			<img src="C:\Users\hp\Documents\ASSIGNMENT1!.html\Img\pp1.jpg" alt="John Smith">
+			<h2>John Smith</h2>
+			<p>John Smith is a software developer with over 10 years of experience. He specializes in web development and has worked on a variety of projects for clients in the healthcare and finance industries.</p>
+			<div class="stars">
+				<span>&#9733;</span>
+				<span>&#9733;</span>
+				<span>&#9733;</span>
+				<span>&#9733;</span>
+			</div>
+		</div>
+		<div class="member">
+			<img src="C:\Users\hp\Documents\ASSIGNMENT1!.html\Img\ppw5.jpg" alt="Sarah Williams">
+			<h2>Sarah Williams</h2>
+			<p>Sarah Williams is a marketing strategist with a passion for digital marketing. She has experience managing campaigns for clients in a variety of industries, including fashion, food, and beauty.</p>
+			<div class="stars">
+				<span>&#9733;</span>
+				<span>&#9733;</span>
+				<span>&#9733;</span>
+				<span>&#9733;</span>
+				<span>&#9733;</span>
+			</div><br><br>
+		<div class="member">
+			<img src="C:\Users\hp\Documents\ASSIGNMENT1!.html\Img\pp2.jpg" alt="Williams Doe">
+			<h2>Williams Doe</h2>
+			<p>Williams Doe is a marketing staff with a passion for digital marketing. he has experience managing campaigns for clients in a variety of industries, including fashion, food, and beauty.</p>
+			<div class="stars">
+				<span>&#9733;</span>
+				<span>&#9733;</span>
+				<span>&#9733;</span>
+				<span>&#9733;</span>
+				<span>&#9733;</span>
+			</div>
+		<div class="member">
+			<img src="C:\Users\hp\Documents\ASSIGNMENT1!.html\Img\pp4.jpg" alt="Kelvin Dennis">
+			<h2>Kelvin Dennis</h2>
+			<p>MR Dennis is the CEO and Founder of Swift Academy, he has a passion of Computer Science and have work with several different partners from abroad.</p>
+			<div class="stars">
+				<span>&#9733;</span>
+				<span>&#9733;</span>
+				<span>&#9733;</span>
+				<span>&#9733;</span>
+				<span>&#9733;</span>
+			</div>
+</div>
+<h1 style="background:yellow;text-align:center;">Our Team Members</h1>
+
+	<div class="right-side">
+		<!-- Swift Academy -->
+		<h3 style="color:powderblue;">Follow us on social media:</h3>
+		<a href="https://www.facebook.com"><span class="icon-link"><i class="fab fa-facebook-f"></i></span></a>
+		<a href="https://www.instagram.com"><span class="icon-link"><i class="fab fa-instagram"></i></span></a>
+		<a href="https://twitter.com"><span class="icon-link"><i class="fab fa-twitter"></i></span></a>
+		<a href="https://www.youtube.com"><span class="icon-link"><i class="fab fa-youtube"></i></span></a>
+		<a href="https://www.whatsapp.com"><span class="icon-link"><i class="fab fa-whatsapp"></i></span></a>
+	</div>
+	
+
+	<!-- Footer -->
+	<footer>
+		<p>Copyright © Swift Academy  2023.
+			<a href="#">Terms and Conditions</a> | 
+			<a href="#">Privacy Policy</a>
+			<br><br>
+		<a href="https://www.facebook.com"><span class="icon-link"><i class="fab fa-facebook-f"></i></span></a>
+		<a href="https://www.instagram.com"><span class="icon-link"><i class="fab fa-instagram"></i></span></a>
+		<a href="https://twitter.com"><span class="icon-link"><i class="fab fa-twitter"></i></span></a>
+		<a href="https://www.youtube.com"><span class="icon-link"><i class="fab fa-youtube"></i></span></a>
+		<a href="https://www.whatsapp.com"><span class="icon-link"><i class="fab fa-whatsapp"></i></span></a>
+		</p>
+	</footer>
+</body>
+</html>
+
